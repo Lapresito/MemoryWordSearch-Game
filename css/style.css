@@ -1,0 +1,73 @@
+*{
+    border: 0px;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.body {
+    /* background-image: url(/img/fondo.webp); */
+    background-color: aqua;
+    height: 100%;
+    width: 100%;
+}
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.title{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    color: green;
+}
+.principalButtons{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.chSelect{
+    margin: 10px;
+}
+.rules{
+    margin: 10px;
+}
+.levels{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.respuestas1{
+    display: none;
+}
+#coord1, #coord2,#coord3,#coord4,#coord5,#coord6,#coord0 {
+    display: none;
+}
+.img{
+    display: none;
+}
+.tablero{
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+}
+
+.rules{
+    display: none;
+}
+.rulesTable{
+    width: 200px;
+    height: 200px;
+}
+
+input{
+    width: 45px;
+}
+
+label{
+    margin: 10px;
+}
