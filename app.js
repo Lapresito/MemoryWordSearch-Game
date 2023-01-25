@@ -1,5 +1,7 @@
 /* ---------------------------------- JUEGO --------------------------------- */
 /*
+---------------------------------PRIMERAS ENTREGAS---------------------------------
+
 function juego() {
     let player = prompt("Welcome to memory word search, please tell us your name")
     //Saludo y recepcion de nombre
@@ -83,41 +85,50 @@ function aseguradora(player) {
         return saludo(player)
     }
 }
+
+    ------------------------------------PRIMERAS ENTREGAS-------------------------------------
 */
+fetch("mwsdatalvls.json")
+    .then(res => res.json())
+    .then(data => {
+        niveles = data
+        startGame()
+        document.addEventListener("DOMContentLoaded", () => recuperarNiveles());
+    })
+    fetch("mwsdataavs.json")
+    .then(res => res.json())
+    .then(data => {
+        avatars = data
+    })
+let niveles
+let avatars
 
-
-
-
+function startGame() {
+    levelMaker(niveles)
+}
 let nivelActivo = null
-const lvl1 = {
-    nombre: `Level 1`,
-    idea: `Welcome to LVL 1, the easiest one, you will have to found a lovely animal with 3 characters`,
-    formClass: ".respuestas1",
-    answers: ["A1", "A2", "A3"],
-    answersLetter: ['d', 'o', 'g']
-
-}
-const lvl2 = {
-    nombre: `Level 2`,
-    idea: `Welcome to LVL 2, you will have to found a animal who is the king of the jungle with 4 characters`,
-    formClass: ".respuestas1",
-    answers: ["C1", "C2", "C3", "C4"],
-    answersLetter: ['l', 'i', 'o', 'n']
-
-}
-const lvl3 = {
-    nombre: `Level 3`,
-    idea: `Welcome to LVL 3, you will have to found an insect who can carry 50 times his weight with 3 characters`,
-    formClass: ".respuestas1",
-    answers: ["B1", "B2", "B3"],
-    answersLetter: ['a', 'n', 't']
-
-}
-
-const niveles = [lvl1, lvl2, lvl3]
-let = nivelesPasados = []
-
+let nivelesPasados = []
 let columns = ['columnA', 'columnB', 'columnC', 'columnD', 'columnE', 'columnF', 'columnG', 'columnH']
+
+const btmNiveles = []
+
+function levelMaker(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        const btmLvl = document.querySelector(`.nivel${i + 1}`)
+        btmLvl.addEventListener("click", () => crearNivel(i))
+        btmNiveles.push(btmLvl)
+        console.log(btmNiveles)
+    }
+}
+
+const lvlStart = document.querySelector(".respuestas1")
+lvlStart.addEventListener("click", () => hideTable())
+
+const btmRules = document.querySelector(".openRules")
+btmRules.addEventListener("click", () => desplegarRules())
+const btmRulesOk = document.querySelector(".rulesOk")
+btmRulesOk.addEventListener("click", () => ocultarRules())
+
 
 function randomLetter(num) {
     const abecedario = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
@@ -129,9 +140,22 @@ function randomLetter(num) {
     return result;
 }
 
-console.log(randomLetter(1))
+function desplegarRules() {
+    let rulesOn = document.querySelector(".rules")
+    rulesOn.style.display = 'flex'
+}
+
+function ocultarRules() {
+    let rulesOn = document.querySelector(".rules")
+    rulesOn.style.display = 'none'
+}
+
 
 function crearNivel(lvlindex) {
+    let btmCheckit = document.querySelector(".checkit")
+    btmCheckit.style.display = 'flex'
+    let table = document.querySelector(".tablero")
+    table.style.display = 'flex'
     let rulesOf = document.querySelector('.rules')
     rulesOf.style.display = 'none'
     const lvl = niveles[lvlindex]
@@ -154,33 +178,9 @@ function crearNivel(lvlindex) {
         document.getElementById(`coord${i}`).style.display = 'block';
     }
 
-    const imagen = document.querySelector(".imgLevel1")
-    imagen.style.display = 'block'
     nivelActivo = lvlindex
     console.log(nivelActivo)
 }
-
-const btmLvl1 = document.querySelector(".nivel1")
-btmLvl1.addEventListener("click", () => crearNivel(0))
-const btmLvl2 = document.querySelector(".nivel2")
-btmLvl2.addEventListener("click", () => crearNivel(1))
-const btmLvl3 = document.querySelector(".nivel3")
-btmLvl3.addEventListener("click", () => crearNivel(2))
-
-const btmRules = document.querySelector(".openRules")
-btmRules.addEventListener("click", () => desplegarRules())
-const btmRulesOk = document.querySelector(".rulesOk")
-btmRulesOk.addEventListener("click", () => ocultarRules())
-function desplegarRules(){
-    let rulesOn = document.querySelector(".rules")
-    rulesOn.style.display = 'block'
-}
-function ocultarRules(){
-    let rulesOn = document.querySelector(".rules")
-    rulesOn.style.display = 'none'
-}
-
-const btmNiveles = [btmLvl1, btmLvl2, btmLvl3]
 
 
 function checkearLvl() {
@@ -191,11 +191,26 @@ function checkearLvl() {
     if (arreglosSonIguales(datos, niveles[nivelActivo].answers)) {
         nivelesPasados.push(nivelActivo)
         console.log(nivelesPasados)
-        btmPasado.style.color = "green"
-        btmPasado.style.background = "red"
+        btmPasado.style.color = "white"
+        btmPasado.style.background = "rgba(31, 104, 213, 0.775)"
         localStorage.setItem("passedLvls", JSON.stringify(nivelesPasados))
+        console.log(nivelActivo)
+        console.log(niveles.length)
         if (nivelActivo == niveles.length - 1) {
+            console.log(nivelActivo)
+            let ganador = document.querySelector('.ganaste')
+            ganador.style.display = 'flex'
+
+        } else {
             crearNivel(nivelActivo + 1)
+            Swal.fire({
+                title: 'Congratulations!',
+                text: 'You passed the level succesfully',
+                imageUrl: `https://cdn.trophystore.co.uk/Img/Dynamic/Product/61031-636911146227176118.jpg`,
+                imageWidth: 150,
+                imageHeight: 200,
+                imageAlt: 'Custom image',
+            })
         }
 
     }
@@ -219,6 +234,13 @@ function obtenerDatos() {
 
 }
 
+
+function hideTable() {
+    console.log("sellamo")
+    let table = document.querySelector(".tablero")
+    table.style.display = 'none'
+}
+
 function arreglosSonIguales(arr1, arr2) {
     for (let i = 0; i < arr2.length; i++) {
         if ((arr1[i] !== arr2[i])) {
@@ -235,14 +257,12 @@ function recuperarNiveles() {
         nivelesPasados = JSON.parse(localStorage.getItem("passedLvls"))
 
         for (let i = 0; i < nivelesPasados.length; i++) {
-            btmNiveles[nivelesPasados[i]].style.color = "green"
-            btmNiveles[nivelesPasados[i]].style.background = "red"
+            btmNiveles[nivelesPasados[i]].style.color = "white"
+            btmNiveles[nivelesPasados[i]].style.background = "rgba(31, 104, 213, 0.775)"
         }
 
     }
 }
-document.addEventListener("DOMContentLoaded", recuperarNiveles());
-// crearNivel(lvl1.nombre, lvl1.idea, lvl1.idea, lvl1.formRespuestas)
 
 
 function columnCreator(column, nivelActual) {
@@ -266,3 +286,48 @@ function columnCreator(column, nivelActual) {
     }
     //...
 }
+
+let avatarSelected = null
+let playerNick = null
+
+let btmChrSelect = document.querySelector(".characterSelect")
+btmChrSelect.addEventListener("click", () => desplegarChrSelection())
+
+function desplegarChrSelection() {
+    setUpClickAvatar(avatars)
+    let chrs = document.querySelector(".characters")
+    chrs.style.display = 'flex';
+
+    let playerNickname = document.querySelector(".nameOfCharacher")
+    getNick()
+}
+let btmSave = document.querySelector(".save")
+btmSave.addEventListener("click", () => ocultarChrSelection())
+
+
+function setUpClickAvatar(avs) {
+    for (let i = 0; i < avs.length; i++) {
+        let btmAvSelect = document.querySelector(`.imgAv${i + 1}`)
+        btmAvSelect.addEventListener("dblclick", () => {
+            avatarSelected = avs[i];
+            console.log(avatarSelected)
+        })
+        
+    }
+}
+function getNick() {
+
+    playerNick = document.getElementById("nameChr").value;
+    console.log(playerNick)
+    return playerNick
+}
+
+function ocultarChrSelection() {
+    getNick()
+    let chrs = document.querySelector(".characters")
+    chrs.style.display = 'none';
+}
+// let btmAv2Select = document.querySelector(".imgAv2")
+// btmAv2Select.addEventListener("click", () => saveAvatar())
+// let btmAv3Select = document.querySelector(".imgAv3")
+// btmAv3Select.addEventListener("click", () => saveAvatar())

@@ -1,0 +1,14 @@
+[
+    {
+        "loftPj": "gandalf",
+        "img": "<img src=\"./img/avatar1.jpg\" class=\"imgAv1\">"
+    },
+    {
+        "loftPj": "frodo",
+        "img": "<img src=\"./img/avatar2.jpg\" class=\"imgAv2\">"
+    },
+   {
+        "loftPj": "dwarf",
+        "img": "<img src=\"./img/avatar3.jpg\" class=\"imgAv3\">"
+    }
+]
