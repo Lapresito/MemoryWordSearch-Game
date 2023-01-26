@@ -5,106 +5,132 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
     <title>Document</title>
 </head>
 
 <body class="body">
     <header>
-        <h1 class="title">Welcome to memory word search!</h1>
+        <h1 class="title">Welcome to Animals memory word search!</h1>
     </header>
     <main>
-        <div class="principalButtons">
-            <div class="chSelect">
-                <button class="characterSelect">Select your character</button>
+        <div id="allgame">
+            <div class="principalButtons">
+                <div class="chSelect">
+                    <button class="characterSelect">Select your character</button>
+                </div>
+                <div>
+                    <button class="openRules">Rules</button>
+                </div>
             </div>
-            <div>
-                <button class="openRules">Rules</button>
+            <div class="characters">
+                <h2>Characters selection</h2>
+                <p>Double Click on the character you want and set a nickname</p>
+                <div class="imagesAvs">
+                    <img src="./img/avatar1.jpg" alt="" class="imgAv1">
+                    <img src="./img/avatar2.jpg" alt="" class="imgAv2">
+                    <img src="./img/avatar3.jpg" alt="" class="imgAv3">
+                </div>
+                <form action="" id="">
+                    <label for="" class="nameOfCharacher">Nick:
+                        <input id="nameChr" type="text">
+                    </label>
+                    <label for="" class="saves">
+                        <input type="button" value="Save" class="save">
+                    </label>
+                </form>
             </div>
-        </div>
-        <div class="characters">
-            <h2>Characters selection</h2>
-            <p>Click on the character you want and set a nickname</p>
-            <div class="imagesAvs">
-                <img src="./img/avatar1.jpg" alt="" class="imgAv1">
-                <img src="./img/avatar2.jpg" alt="" class="imgAv2">
-                <img src="./img/avatar3.jpg" alt="" class="imgAv3">
-            </div>
-            <form action="" id="">
-                <label for="" class="nameOfCharacher">Nick:
-                    <input id="nameChr" type="text">
-                </label>
-                <label for="" class="saves">
-                    <input type="button" value="Save" class="save">
-                </label>
-            </form>
-        </div>
-        <div class="rules">
-            <h2>Let's explain the rules and the table</h2>
-            <img src="img/tablero.webp" alt="" class="rulesTable">
-            <p> As you see the table is like the chess table, you will have to find a hidden word in every level and remember every character in the correct order.
-                Then you will have to remind and enter every coord, because the moment that you type the coord, the table disappears.
-                
-            </p>
-        <button class="rulesOk">OK</button></div>
-        <div class="levels">
-            <button class="nivel1">Level 1</button>
-            <button class="nivel2">Level 2</button>
-            <button class="nivel3">Level 3</button>
-            <button class="nivel4">Level 4</button>
-            <button class="nivel5">Level 5</button>
-            <button class="nivel6">Level 6</button>
-            <button class="nivel7">Level 7</button>
-            <button class="nivel8">Level 8</button>
-            <button class="nivel9">Level 9</button>
-        </div>
+            <div class="rules">
+                <h2>Let's explain the rules and the table</h2>
+                <img src="./img/tablero.png" alt="" class="rulesTable">
+                <p class="explanationTable"> As you see the table is like the chess table, you will have to find a hidden word in every level and
+                    remember every character in the correct order.
+                    Then you will have to remind and enter every coord, because the moment that you type the coord, the
+                    table disappears.
 
-        
-        <div class="juego">
-            <h2 class="lvlTitle"></h2>
-            <p class="lvlExplanation"></p>
-            <div class="tablero">
-                <div class="columnA"></div>
-                <div class="columnB"></div>
-                <div class="columnC"></div>
-                <div class="columnD"></div>
-                <div class="columnE"></div>
-                <div class="columnF"></div>
-                <div class="columnG"></div>
-                <div class="columnH"></div>
+                </p>
+                <button class="rulesOk">OK</button>
             </div>
-            <form class="respuestas1">
-                <label for="answer1">
-                    <input type="text" name="" id="coord0" class="resp">
+            <div class="levels">
+                <button class="nivel1">Level 1</button>
+                <button class="nivel2">Level 2</button>
+                <button class="nivel3">Level 3</button>
+                <button class="nivel4">Level 4</button>
+                <button class="nivel5">Level 5</button>
+                <button class="nivel6">Level 6</button>
+                <button class="nivel7">Level 7</button>
+                <button class="nivel8">Level 8</button>
+                <button class="nivel9">Level 9</button>
+            </div>
+
+
+            <div class="juego">
+                <h2 class="lvlTitle"></h2>
+                <h5 class="lvlCharacters"></h5>
+                <p class="lvlExplanation"></p>
+                <div class="tablero">
+                    <div class="columnA"></div>
+                    <div class="columnB"></div>
+                    <div class="columnC"></div>
+                    <div class="columnD"></div>
+                    <div class="columnE"></div>
+                    <div class="columnF"></div>
+                    <div class="columnG"></div>
+                    <div class="columnH"></div>
+                </div>
+                <form class="respuestas1">
+                    <label for="answer1">
+                        <input type="text" name="" id="coord0" class="resp">
+                    </label>
+                    <label for="answer2">
+                        <input type="text" name="" id="coord1" class="resp">
+                    </label>
+                    <label for="answer3">
+                        <input type="text" name="" id="coord2" class="resp">
+                    </label>
+                    <label for="answer4">
+                        <input type="text" name="" id="coord3" class="resp">
+                    </label>
+                    <label for="answer5">
+                        <input type="text" name="" id="coord4" class="resp">
+                    </label>
+                    <label for="answer6">
+                        <input type="text" name="" id="coord5" class="resp">
+                    </label>
+                    <label for="answer7">
+                        <input type="text" name="" id="coord6" class="resp">
+                    </label>
+
+                </form>
+                <label for="itsOK?" class="checkit">
+                    <input type="button" onclick="checkearLvl()" value="check" class="verificacion">
                 </label>
-                <label for="answer2">
-                    <input type="text" name="" id="coord1" class="resp">
-                </label>
-                <label for="answer3">
-                    <input type="text" name="" id="coord2" class="resp">
-                </label>
-                <label for="answer4">
-                    <input type="text" name="" id="coord3" class="resp">
-                </label>
-                <label for="answer5">
-                    <input type="text" name="" id="coord4" class="resp">
-                </label>
-                <label for="answer6">
-                    <input type="text" name="" id="coord5" class="resp">
-                </label>
-                <label for="answer7">
-                    <input type="text" name="" id="coord6" class="resp">
-                </label>
-                
-            </form> 
-            <label for="itsOK?" class="checkit">
-                <input type="button" onclick="checkearLvl()" value="check" class="verificacion">
-            </label>
+            </div>
         </div>
-       <div class="ganaste"><h2>xd</h2></div>
+        <div class="ganaste">
+            <h2 class="congrats">Congratulations!</h2>
+            <div id="avsWinner"></div>
+            <h4>You are a great zoologist</h4>
+            <p>These are all the awards of the founded animals:</p>
+            <div class="row">
+                <div class="award dog"><img src="" alt=""></div>
+                <div class="award lion"><img src="./img/lion.jpg" alt=""></div>
+                <div class="award ant"><img src="./img/ant.jpg" alt=""></div>
+            </div>
+            <div class="row">
+                <div class="award panda"><img src="./img/panda.jpg" alt=""></div>
+                <div class="award whale"><img src="./img/whale.jpg" alt=""></div>
+                <div class="award eagle"><img src="./img/eagle.jpg" alt=""></div>
+            </div>
+            <div class="row">
+            </div>
+        </div>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+    </script>
     <script src="sweetalert2.all.min.js"></script>
     <script src="app.js"></script>
 </body>

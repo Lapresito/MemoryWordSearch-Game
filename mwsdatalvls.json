@@ -1,48 +1,78 @@
 [
     {
         "nombre": "Level 1",
-        "idea": "Welcome to LVL 1, the easiest one, you will have to found a lovely animal with 3 characters",
+        "idea": "I am your best friend. My wet nose sniffs for food, I have 4 legs and a tail. I love to play & chase cats.",
         "formClass": ".respuestas1",
+        "characters" : "Characters: 3",
         "answers": ["A2", "A3", "A4"],
         "answersLetter": ["d", "o", "g"]
     
     }, 
     {
         "nombre": "Level 2",
-        "idea": "Welcome to LVL 2, you will have to found a animal who is the king of the jungle with 4 characters",
+        "idea": "A king without a crown",
         "formClass": ".respuestas1",
+        "characters" : "Characters: 4",
         "answers": ["C4", "C5", "C6", "C7"],
         "answersLetter": ["l", "i", "o", "n"]
     
     },
     {
         "nombre": "Level 3",
-        "idea": "Welcome to LVL 3, you will have to found an insect who can carry 50 times his weight with 3 characters",
+        "idea": "I might be tiny but I can lift things that are about 50 times my weight",
         "formClass": ".respuestas1",
+        "characters" : "Characters: 3",
         "answers": ["G6", "G5", "G4"],
         "answersLetter": ["a", "n", "t"]
     
     },
     {
         "nombre": "Level 4",
-        "idea": "Welcome to LVL 4, you will have to found an animal who his favourite food is bamboo",
+        "idea": "My favourite food is bamboo",
         "formClass": ".respuestas1",
+        "characters" : "Characters: 5",
         "answers": ["C3", "D4", "E5", "F6", "G7"],
         "answersLetter": ["p", "a", "n", "d", "a"]
     },
     {
         "nombre": "Level 5",
-        "idea": "Welcome to LVL 5, you will have to found an animal who is the biggest in the ocean",
+        "idea": "I have a hole in my back and legs I lack. I am the biggest mammal in the ocean",
         "formClass": ".respuestas1",
+        "characters" : "Characters: 5",
         "answers": ["G6", "F6", "E6", "D6", "C6"],
         "answersLetter": ["w", "h", "a", "l", "e"]
     },
     {
         "nombre": "Level 6",
-        "idea": "Welcome to LVL 6, you will have to found a type of animal who can fly",
+        "idea": "I can see my prey from high in the sky. My wings are large, I am brave and fearless. I prey on fellow birds.",
         "formClass": ".respuestas1",
-        "answers": ["C8", "C7", "C6", "C5"],
-        "answersLetter": ["b", "i", "r", "d"]
+        "characters" : "Characters: 5",
+        "answers": ["C8", "C7", "C6", "C5", "C4"],
+        "answersLetter": ["e", "a", "g", "l", "e"]
+    },
+    {
+        "nombre": "Level 7",
+        "idea": "I have two long ears, and I do not walk, I hop.",
+        "formClass": ".respuestas1",
+        "characters" : "Characters: 6",
+        "answers": ["H7", "H6", "H5", "H4", "H3", "H2"],
+        "answersLetter": ["r", "a", "b", "b", "i", "t"]
+    },
+    {
+        "nombre": "Level 8",
+        "idea": "I’ve got lumps on my back and I live on the sand. I’m strong and I carry you over the land",
+        "formClass": ".respuestas1",
+        "characters" : "Characters: 5",
+        "answers": ["H8", "G7", "F6", "E5", "D4"],
+        "answersLetter": ["c", "a", "m", "e", "l"]
+    },
+    {
+        "nombre": "Level 9",
+        "idea": "I move without wings, between silken strings, I leave as you find, my substance behind.",
+        "formClass": ".respuestas1",
+        "characters" : "Characters: 6",
+        "answers": ["C7", "D6", "E5", "F4", "G3", "H2"],
+        "answersLetter": ["s", "p", "i", "d", "e", "r"]
     }
     
 ]

@@ -44,12 +44,16 @@ body {
     display: none;
 }
 .tablero{
-    width: 500px;
+    width: 260px;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     margin: 5px;
+    background-image: url(../img/fondo.jpg);
+}
+.explanationTable{
+    width: 40%;
 }
 
 .rules{
@@ -99,6 +103,35 @@ img{
     align-items: center;
     justify-content: center;
 }
+.imagesAvs :hover{
+    border: solid 2px violet;
+}
 .ganaste{
     display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+.row{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    width: 70%;
+    height: 70%;
+}
+.award{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    border: 3px rgba(42, 107, 211, 0.667) solid;
+    background-color: rgba(42, 107, 211, 0.667);
+    border-radius: 2%;
+    padding: 0;
+}
+img{
+    width: 140px;
+    height: 140px;
+}
+

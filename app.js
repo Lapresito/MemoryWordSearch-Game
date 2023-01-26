@@ -95,7 +95,7 @@ fetch("mwsdatalvls.json")
         startGame()
         document.addEventListener("DOMContentLoaded", () => recuperarNiveles());
     })
-    fetch("mwsdataavs.json")
+fetch("mwsdataavs.json")
     .then(res => res.json())
     .then(data => {
         avatars = data
@@ -169,6 +169,8 @@ function crearNivel(lvlindex) {
 
     const lvlTitle = document.querySelector(".lvlTitle")
     lvlTitle.textContent = lvl.nombre
+    const lvlCharacters = document.querySelector(".lvlCharacters")
+    lvlCharacters.textContent = lvl.characters
     const lvlExplanation = document.querySelector(".lvlExplanation")
     lvlExplanation.textContent = lvl.idea
     const respuestas = document.querySelector(lvl.formClass)
@@ -200,6 +202,15 @@ function checkearLvl() {
             console.log(nivelActivo)
             let ganador = document.querySelector('.ganaste')
             ganador.style.display = 'flex'
+            let congratulationsTo = document.querySelector('.congrats')
+            congratulationsTo.textContent = `Congratulations ${playerNick}!`
+            let elem = document.createElement("img");
+            elem.setAttribute("src", `${avatarSelected[1]}`);
+            elem.setAttribute("height", "400");
+            elem.setAttribute("width", "400");
+            document.getElementById("avsWinner").appendChild("elem");
+            let allgame = document.querySelector('#allgame')
+            allgame.style.display = 'none'
 
         } else {
             crearNivel(nivelActivo + 1)
@@ -273,7 +284,7 @@ function columnCreator(column, nivelActual) {
         div.classList.add(column[6] + i);
         container.appendChild(div)
         container.style.display.flexdirection = "column"
-        container.style.margin = "8px"
+        container.style.padding = "8px"
     }
     for (i = 1; i <= 8; i++) {
         let coord = document.querySelector(`.${column[6]}${i}`)
@@ -312,9 +323,10 @@ function setUpClickAvatar(avs) {
             avatarSelected = avs[i];
             console.log(avatarSelected)
         })
-        
+
     }
 }
+
 function getNick() {
 
     playerNick = document.getElementById("nameChr").value;
@@ -327,7 +339,3 @@ function ocultarChrSelection() {
     let chrs = document.querySelector(".characters")
     chrs.style.display = 'none';
 }
-// let btmAv2Select = document.querySelector(".imgAv2")
-// btmAv2Select.addEventListener("click", () => saveAvatar())
-// let btmAv3Select = document.querySelector(".imgAv3")
-// btmAv3Select.addEventListener("click", () => saveAvatar())
