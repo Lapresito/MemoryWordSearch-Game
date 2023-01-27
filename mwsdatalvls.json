@@ -60,7 +60,7 @@
     },
     {
         "nombre": "Level 8",
-        "idea": "I’ve got lumps on my back and I live on the sand. I’m strong and I carry you over the land",
+        "idea": "I have got lumps on my back and I live on the sand. I am strong and I carry you over the land",
         "formClass": ".respuestas1",
         "characters" : "Characters: 5",
         "answers": ["H8", "G7", "F6", "E5", "D4"],

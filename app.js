@@ -93,7 +93,8 @@ fetch("mwsdatalvls.json")
     .then(data => {
         niveles = data
         startGame()
-        document.addEventListener("DOMContentLoaded", () => recuperarNiveles());
+        // document.addEventListener("DOMContentLoaded", recuperarNiveles);
+        recuperarNiveles()
     })
 fetch("mwsdataavs.json")
     .then(res => res.json())
@@ -161,6 +162,7 @@ function crearNivel(lvlindex) {
     const lvl = niveles[lvlindex]
     for (let i = 0; i < 7; i++) {
         document.getElementById(`coord${i}`).style.display = 'none';
+    
     }
     //crear tablero
     for (let i = 0; i < 8; i++) {
@@ -204,11 +206,13 @@ function checkearLvl() {
             ganador.style.display = 'flex'
             let congratulationsTo = document.querySelector('.congrats')
             congratulationsTo.textContent = `Congratulations ${playerNick}!`
-            let elem = document.createElement("img");
-            elem.setAttribute("src", `${avatarSelected[1]}`);
-            elem.setAttribute("height", "400");
-            elem.setAttribute("width", "400");
-            document.getElementById("avsWinner").appendChild("elem");
+            
+            let imagen = document.createElement("img"); 
+            imagen.setAttribute("src", `${avatarSelected.img}`); 
+            let imgPlayer = document.getElementById("avsWinner"); 
+            imgPlayer.appendChild(imagen); 
+
+
             let allgame = document.querySelector('#allgame')
             allgame.style.display = 'none'
 
@@ -226,7 +230,6 @@ function checkearLvl() {
 
     }
 }
-
 
 function obtenerDatos() {
     const x0 = document.getElementById("coord0").value;
@@ -263,9 +266,12 @@ function arreglosSonIguales(arr1, arr2) {
 }
 
 function recuperarNiveles() {
-    if (localStorage.getItem("passedLvls") !== null) {
-
+    if (localStorage.getItem("passedLvls") !== null && localStorage.getItem("playernick") !== null && localStorage.getItem("playeravatar") !== null && localStorage.getItem("btmnick") !== "Select your caracter") {
+        
+        playerNick = JSON.parse(localStorage.getItem("playernick"))
+        avatarSelected = JSON.parse(localStorage.getItem("playeravatar"))
         nivelesPasados = JSON.parse(localStorage.getItem("passedLvls"))
+        btmNick.textContent = JSON.parse(localStorage.getItem("playernick"))
 
         for (let i = 0; i < nivelesPasados.length; i++) {
             btmNiveles[nivelesPasados[i]].style.color = "white"
@@ -300,6 +306,7 @@ function columnCreator(column, nivelActual) {
 
 let avatarSelected = null
 let playerNick = null
+let btmNick = document.querySelector(".characterSelect")
 
 let btmChrSelect = document.querySelector(".characterSelect")
 btmChrSelect.addEventListener("click", () => desplegarChrSelection())
@@ -321,6 +328,7 @@ function setUpClickAvatar(avs) {
         let btmAvSelect = document.querySelector(`.imgAv${i + 1}`)
         btmAvSelect.addEventListener("dblclick", () => {
             avatarSelected = avs[i];
+            localStorage.setItem("playeravatar", JSON.stringify(avatarSelected))
             console.log(avatarSelected)
         })
 
@@ -330,7 +338,11 @@ function setUpClickAvatar(avs) {
 function getNick() {
 
     playerNick = document.getElementById("nameChr").value;
+    //setItem NICK
     console.log(playerNick)
+    let btmContent = document.querySelector(".characterSelect")
+    btmContent.textContent = playerNick
+    localStorage.setItem("playernick", JSON.stringify(playerNick))
     return playerNick
 }
 

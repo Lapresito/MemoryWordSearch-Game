@@ -15,7 +15,7 @@ body {
     justify-content: center;
     align-items: center;
     margin: 10px;
-    color: green;
+    color: rgba(73, 2, 67, 0.998);
 }
 .principalButtons{
     display: flex;
@@ -135,3 +135,22 @@ img{
     height: 140px;
 }
 
+button{
+    background-color: rgba(127, 255, 212, 0.352);
+    border: solid aquamarine 1px;
+    border-radius: 5%;
+}
+
+label{
+    background-color: rgba(127, 255, 212, 0.352);
+    border: solid aquamarine 1px;
+    border-radius: 5%;
+}
+input{
+    background-color: rgba(127, 255, 212, 0.352);
+    border: solid aquamarine 1px;
+    border-radius: 5%;
+}
+.lvlExplanation{
+    width: 40%;
+}
